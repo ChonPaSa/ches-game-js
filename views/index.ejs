@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+<script src="/socket.io/socket.io.js"></script>
+
+<div class="container">
+    <div class="board-container">
+        <h1>Schach JS</h1>
+        <div id="board"></div>
+        <div id="turn"></div>
+        <button id="play">Spielen</button>
+        <button id="resign" disabled>Aufgeben</button>
+        <button id="draw" disabled>Remis</button><br />
+        <input id="current-fen" type="hidden" size="30" class="text" disabled /><br />
+        <input id="player-color" type="hidden" size="10" class="text" disabled /><br />
+        <input id="game-number" type="hidden" size="10" class="text" disabled /><br />
+        <div>
+            <% if (locals.userName) { %>
+                <a class="button" href="/users/games">Deine Spiele</a>
+            <% } else { %>
+            <a class="button" href="/users/login">Anmelden</a>
+            <a class="button" href="/users/register">Registrieren</a>
+            <% } %>
+        </div>
+    </div>
+    <div id="game-modal">
+        <h2 class="status-message"></h2>
+        <button id="close-message">Schließen</button>
+        <div class="draw-buttons">
+            <button id="accept-draw">Annehmen</button>
+            <button id="refuse-draw">Ablehnen</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/javascripts/index.js"></script>
+<%- include("partials/footer") %>

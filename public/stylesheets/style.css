@@ -1,0 +1,210 @@
+/* Basic Styles */
+:root {
+  --accentcolor: #769656;
+  --basecolor: #eeeed2;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: Helvetica, sans-serif;
+  background-color: #ddd;
+}
+
+h1,
+h2,
+#turn {
+  color: var(--accentcolor);
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: #ddd;
+}
+
+.container.black {
+  background-color: #222;
+}
+.container.white {
+  background-color: #fff;
+}
+
+.container .board-container {
+  padding-top: 30px;
+  text-align: center;
+  flex-basis: 100%;
+  height: 100%;
+}
+
+button,
+.button {
+  background-color: var(--basecolor);
+  border: 1px solid var(--accentcolor);
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.button {
+  text-decoration: none;
+  font-size: 13.3px;
+  color: black;
+}
+
+button:hover:enabled,
+.button:hover {
+  background-color: var(--accentcolor);
+}
+
+label {
+  font-size: 20px;
+}
+input {
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+#turn {
+  margin-bottom: 40px;
+}
+
+/* Board */
+.container .board-container #board {
+  border: 5px solid black;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5vh auto 20px;
+}
+#board.reverse {
+  flex-direction: row-reverse !important;
+  flex-wrap: wrap-reverse !important;
+}
+
+.square {
+  position: relative;
+  height: 12.5%;
+  flex-basis: 12.5%;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.square img {
+  height: 60px;
+}
+
+.dark-square {
+  background-color: #769656;
+}
+
+.light-square {
+  background-color: #eeeed2;
+}
+
+.light-square.selected {
+  background-color: #ffff8f;
+}
+.dark-square.selected {
+  background-color: yellowgreen;
+}
+
+.piece {
+  position: relative;
+}
+.legal-move {
+  position: absolute;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  background-color: #ccc;
+  border-radius: 50%;
+  top: 30%;
+  left: 30%;
+  opacity: 0.5;
+}
+input {
+  float: left;
+}
+
+/*
+GAME MODAL
+*/
+
+#game-modal {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 200px;
+  height: 20vh;
+  width: 90vw;
+  opacity: 0.95;
+  border: 2px solid var(--accentcolor);
+  background-color: var(--basecolor);
+  text-align: center;
+}
+#game-modal .status-message {
+  white-space: pre;
+}
+
+#game-modal .status-message {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#game-modal #close-message,
+#game-modal .draw-buttons {
+  display: none;
+  margin-top: 60px;
+}
+
+#game-modal .draw-buttons button {
+  margin: 0 auto;
+}
+
+/* registration form */
+.form-container {
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 300px;
+}
+.form-container label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.form-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--accentcolor);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.form-container button:hover {
+  background-color: var(--accentcolor);
+}
